@@ -43,7 +43,7 @@ npm run build
 
 ## Deployment
 
-The app is configured for GitHub Pages. On `main` pushes, `.github/workflows/pages.yml` runs tests, builds with `GITHUB_PAGES=true`, uploads `dist`, and deploys Pages.
+The app is configured for GitHub Pages. On `main` pushes, `.github/workflows/pages.yml` runs tests, builds with `GITHUB_PAGES=true`, creates a `404.html` SPA fallback, uploads `dist`, and deploys Pages.
 
 Expected public URL after deployment:
 
@@ -57,4 +57,3 @@ https://anhtnt90dev.github.io/daily-english/
 - Vietnamese process document: [docs/PROCESS.vi.md](docs/PROCESS.vi.md)
 - Design spec: [docs/superpowers/specs/2026-05-31-daily-english-design.md](docs/superpowers/specs/2026-05-31-daily-english-design.md)
 - Implementation plan: [docs/superpowers/plans/2026-05-31-daily-english.md](docs/superpowers/plans/2026-05-31-daily-english.md)
-

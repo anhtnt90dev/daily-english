@@ -104,8 +104,9 @@ The workflow in `.github/workflows/pages.yml` performs these steps:
 3. Run `npm ci`.
 4. Run `npm run test:run`.
 5. Run `GITHUB_PAGES=true npm run build`.
-6. Upload `dist`.
-7. Deploy to GitHub Pages.
+6. Copy `dist/index.html` to `dist/404.html` so direct SPA routes render in browsers on GitHub Pages.
+7. Upload `dist`.
+8. Deploy to GitHub Pages.
 
 The Vite config uses `/daily-english/` as the base path when `GITHUB_PAGES=true`, so assets resolve correctly on:
 
@@ -113,10 +114,11 @@ The Vite config uses `/daily-english/` as the base path when `GITHUB_PAGES=true`
 https://anhtnt90dev.github.io/daily-english/
 ```
 
+Direct clean routes such as `/daily-english/lesson/morning-at-the-station` are served through the GitHub Pages `404.html` SPA fallback. GitHub still returns an HTTP 404 for direct deep-link fetches, but browsers render the React route correctly.
+
 ## 8. Limitations
 
 - Speech quality depends on the browser and operating system voices.
 - Progress is local to the browser and is not synced across devices.
 - Login/register pages are placeholders because this static deployment has no backend.
 - The leaderboard uses sample data, not real user accounts.
-

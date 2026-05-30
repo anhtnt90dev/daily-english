@@ -104,8 +104,9 @@ Workflow trong `.github/workflows/pages.yml` thuc hien:
 3. Chay `npm ci`.
 4. Chay `npm run test:run`.
 5. Chay `GITHUB_PAGES=true npm run build`.
-6. Upload thu muc `dist`.
-7. Deploy len GitHub Pages.
+6. Copy `dist/index.html` thanh `dist/404.html` de direct SPA routes van render duoc trong trinh duyet tren GitHub Pages.
+7. Upload thu muc `dist`.
+8. Deploy len GitHub Pages.
 
 Cau hinh Vite dung base path `/daily-english/` khi `GITHUB_PAGES=true`, nen asset se hoat dong dung o URL:
 
@@ -113,10 +114,11 @@ Cau hinh Vite dung base path `/daily-english/` khi `GITHUB_PAGES=true`, nen asse
 https://anhtnt90dev.github.io/daily-english/
 ```
 
+Direct clean route nhu `/daily-english/lesson/morning-at-the-station` duoc phuc vu qua `404.html` SPA fallback cua GitHub Pages. GitHub van tra HTTP 404 neu fetch truc tiep deep link, nhung trinh duyet se render dung React route.
+
 ## 8. Gioi Han
 
 - Chat luong giong doc phu thuoc vao trinh duyet va he dieu hanh.
 - Tien do chi luu local tren trinh duyet, khong dong bo giua thiet bi.
 - Trang login/register chi la placeholder vi ban deploy tinh khong co backend.
 - Bang xep hang dung du lieu mau, khong phai tai khoan that.
-
